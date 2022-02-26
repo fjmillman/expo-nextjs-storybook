@@ -11,7 +11,12 @@
     "dev": "next dev",
     "web": "next",
     "build": "next build",
-    "eject-next": "next-expo customize"
+    "eject-next": "next-expo customize",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "engines": {
+    "node": "14.19.0"
   },
   "dependencies": {
     "expo": "^44.0.0",
@@ -29,10 +34,22 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@expo/next-adapter": "^3.1.20",
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-interactions": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/addon-react-native-web": "0.0.18",
+    "@storybook/builder-webpack5": "^6.4.19",
+    "@storybook/manager-webpack5": "^6.4.19",
+    "@storybook/react": "^6.4.19",
+    "@storybook/testing-library": "0.0.9",
     "@types/node": "^17.0.21",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
     "@types/react-native": "^0.66.16",
-    "babel-preset-expo": "^9.0.2"
+    "babel-loader": "^8.2.3",
+    "babel-preset-expo": "^9.0.2",
+    "core-js": "^3.21.1",
+    "webpack": "^5.69.1"
   }
 }
