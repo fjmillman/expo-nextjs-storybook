@@ -1,46 +1,32 @@
-# @generated: @expo/next-adapter@2.1.0
-node_modules/**/*
-.expo/*
+/node_modules/
 npm-debug.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
-*.orig.*
-web-build/
-web-report/
-
-# debug
-yarn-debug.log*
-yarn-error.log*
-
-# macOS
-.DS_Store
 
 # misc
 .DS_Store
 .env*
 
-.next
+# expo
+.expo
 
-# @generated: @expo/next-adapter@2.1.52
-/.expo/*
-# Expo Web
-/web-build/*
-# Expo Native
+# expo web
+web-build
+web-report
+
+# expo native
 *.jks
 *.p8
 *.p12
 *.key
 *.mobileprovision
 *.orig.*
-# Next.js
-/.next/*
+
+# next.js
+/.next/
 /out/
-# Next.js production
+
+# next.js production
 /build/
-# Next.js dependencies
-/.pnp
+
+# next.js dependencies
+/.pnp/
 .pnp.js
-# @end @expo/next-adapter
