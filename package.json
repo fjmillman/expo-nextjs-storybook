@@ -21,6 +21,7 @@
     "storybook:native:start": "npm run storybook:native:stories && IS_STORYBOOK=true npm run expo:start",
     "storybook:native:ios": "npm run storybook:native:stories && IS_STORYBOOK=true npm run expo:ios",
     "storybook:native:android": "npm run storybook:native:stories && IS_STORYBOOK=true npm run expo:android",
+    "prepare": "husky install",
     "lint:check": "eslint *.{js,ts,tsx}",
     "lint:fix": "eslint --fix *.{js,ts,tsx}",
     "test": "jest --watch --coverage=false --changedSince=origin/main",
@@ -29,11 +30,6 @@
   },
   "lint-staged": {
     "*.{js,ts,tsx}": "eslint --fix"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "engines": {
     "node": "14.19.0"
