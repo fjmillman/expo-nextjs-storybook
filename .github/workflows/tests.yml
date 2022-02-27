@@ -1,19 +1,7 @@
-name: Tests
+name: 'Jest Testing'
 on: push
 jobs:
-  storybook:
-    timeout-minutes: 60
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14.x'
-      - name: Install dependencies
-        run: npm install
-      - name: Run Storybook tests
-        run: npm run storybook:test:ci
-  jest:
+  testing:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:

@@ -7,7 +7,9 @@ const WelcomeButton: FC = () => {
   return (
     <>
       <Button onPress={() => setIsOpen(true)} title="Click here" />
-      {isOpen && <Text style={styles.text}>You're ready to development!</Text>}
+      {isOpen && (
+        <Text style={styles.text}>You're ready to start development!</Text>
+      )}
     </>
   );
 };
