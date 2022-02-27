@@ -6,6 +6,7 @@ const config: StorybookConfig = {
   },
   features: {
     babelModeV7: true,
+    interactionsDebugger: true,
     postcss: false,
   },
   stories: [
@@ -15,6 +16,7 @@ const config: StorybookConfig = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
+    '@storybook/addon-interactions',
     '@storybook/addon-react-native-web'
   ],
   framework: "@storybook/react",

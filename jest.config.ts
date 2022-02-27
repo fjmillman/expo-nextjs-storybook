@@ -1,7 +1,6 @@
 import { Config } from "@jest/types";
 
 const untranspiledModulePatterns = [
-  "@storybook",
   "(jest-)?@?react-native",
   "react-clone-referenced-element",
   "@react-native-community",
@@ -17,7 +16,6 @@ const untranspiledModulePatterns = [
 ];
 
 const config: Config.InitialOptions = {
-  testEnvironment: "jsdom",
   preset: "jest-expo",
   globals: {
     "ts-jest": {
