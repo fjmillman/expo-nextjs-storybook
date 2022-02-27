@@ -3,9 +3,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import WelcomeButton from '.';
 
 export default {
+  title: 'Components/Default',
   component: WelcomeButton,
-} as ComponentMeta<typeof WelcomeButton>;;
+} as ComponentMeta<typeof WelcomeButton>;
 
-const Template: ComponentStory<typeof WelcomeButton> = () => <WelcomeButton />;
-
-export const Default = Template.bind({});
+export const Default: ComponentStory<typeof WelcomeButton> = () => <WelcomeButton />;

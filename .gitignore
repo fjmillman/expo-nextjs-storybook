@@ -34,5 +34,8 @@ web-report
 /.pnp/
 .pnp.js
 
+# storybook
+/storybook-static/
+
 # vercel
 .vercel

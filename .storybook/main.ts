@@ -5,7 +5,6 @@ const config: StorybookConfig = {
     builder: 'webpack5',
   },
   features: {
-    storyStoreV7: !global.navigator?.userAgent?.match?.('jsdom'),
     babelModeV7: true,
     postcss: false,
   },
