@@ -36,6 +36,7 @@ web-report
 
 # storybook
 /storybook-static/
+build-storybook.log
 
 # vercel
 .vercel
