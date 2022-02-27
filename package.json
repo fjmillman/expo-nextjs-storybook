@@ -18,7 +18,17 @@
     "storybook:native:watch": "sb-rn-watcher --config-path .storybook/react-native",
     "storybook:native:start": "npm run storybook:native:stories && IS_STORYBOOK=true npm run expo:start",
     "storybook:native:ios": "npm run storybook:native:stories && IS_STORYBOOK=true npm run expo:ios",
-    "storybook:native:android": "npm run storybook:native:stories && IS_STORYBOOK=true npm run expo:android"
+    "storybook:native:android": "npm run storybook:native:stories && IS_STORYBOOK=true npm run expo:android",
+    "lint:check": "eslint *.{js,ts,tsx}",
+    "lint:fix": "eslint --fix *.{js,ts,tsx}"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": "eslint --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "engines": {
     "node": "14.19.0"
@@ -61,9 +71,16 @@
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
     "@types/react-native": "^0.66.16",
+    "@typescript-eslint/eslint-plugin": "^5.12.1",
+    "@typescript-eslint/parser": "^5.12.1",
     "babel-loader": "^8.2.3",
     "babel-preset-expo": "^9.0.2",
     "core-js": "^3.21.1",
+    "eslint": "^8.10.0",
+    "eslint-config-universe": "^10.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.4",
+    "prettier": "^2.5.1",
     "typescript": "^4.5.5",
     "webpack": "^5.69.1"
   }

@@ -1,6 +1,7 @@
-import { FC } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import WelcomeButton from '../components/WelcomeButton';
+import { FC } from "react";
+import { StyleSheet, Text, View } from "react-native";
+
+import WelcomeButton from "../components/WelcomeButton";
 
 const HomeScreen: FC = () => (
   <View style={styles.container}>
@@ -12,12 +13,12 @@ const HomeScreen: FC = () => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   text: {
     fontSize: 16,
-  }
+  },
 });
 
 export default HomeScreen;

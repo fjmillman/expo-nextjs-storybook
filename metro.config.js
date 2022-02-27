@@ -15,6 +15,9 @@ defaultConfig.transformer.getTransformOptions = async () => ({
   },
 });
 
-defaultConfig.watchFolders = [...defaultConfig.watchFolders, './.storybook/react-native'];
+defaultConfig.watchFolders = [
+  ...defaultConfig.watchFolders,
+  './.storybook/react-native',
+];
 
 module.exports = defaultConfig;

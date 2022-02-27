@@ -1,10 +1,12 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import WelcomeButton from '.';
+import WelcomeButton from ".";
 
 export default {
-  title: 'Components/Default',
+  title: "Components/Default",
   component: WelcomeButton,
 } as ComponentMeta<typeof WelcomeButton>;
 
-export const Default: ComponentStory<typeof WelcomeButton> = () => <WelcomeButton />;
+export const Default: ComponentStory<typeof WelcomeButton> = () => (
+  <WelcomeButton />
+);
