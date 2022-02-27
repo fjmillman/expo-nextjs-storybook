@@ -1,7 +1,7 @@
-name: 'Jest Testing'
+name: 'Testing'
 on: push
 jobs:
-  testing:
+  jest:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
