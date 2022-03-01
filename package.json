@@ -23,8 +23,8 @@
     "storybook:native:ios": "npm run storybook:native:stories && IS_STORYBOOK=true npm run expo:ios",
     "storybook:native:android": "npm run storybook:native:stories && IS_STORYBOOK=true npm run expo:android",
     "prepare": "husky install",
-    "lint:check": "eslint *.{js,ts,tsx}",
-    "lint:fix": "eslint --fix *.{js,ts,tsx}",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
     "test": "jest --watch --coverage=false --changedSince=origin/main",
     "test:debug": "jest -o --watch --coverage=false",
     "test:final": "jest"
@@ -82,6 +82,7 @@
     "concurrently": "^7.0.0",
     "core-js": "^3.21.1",
     "eslint": "^8.10.0",
+    "eslint-config-next": "^12.1.0",
     "eslint-config-universe": "^10.0.0",
     "eslint-plugin-storybook": "^0.5.7",
     "http-server": "^14.1.0",

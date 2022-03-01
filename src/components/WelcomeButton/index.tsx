@@ -1,5 +1,5 @@
-import { FC, useState } from "react";
-import { Button, StyleSheet, Text } from "react-native";
+import { FC, useState } from 'react';
+import { Button, StyleSheet, Text } from 'react-native';
 
 const WelcomeButton: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,7 +8,7 @@ const WelcomeButton: FC = () => {
     <>
       <Button onPress={() => setIsOpen(true)} title="Click here" />
       {isOpen && (
-        <Text style={styles.text}>You're ready to start development!</Text>
+        <Text style={styles.text}>You&apos;re ready to start development!</Text>
       )}
     </>
   );

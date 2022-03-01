@@ -1,10 +1,10 @@
-const { getDefaultConfig } = require("expo/metro-config");
+const { getDefaultConfig } = require('expo/metro-config');
 
 const defaultConfig = getDefaultConfig(__dirname);
 
 defaultConfig.resolver.resolverMainFields = [
-  "sbmodern",
-  "react-native",
+  'sbmodern',
+  'react-native',
   ...defaultConfig.resolver.resolverMainFields,
 ];
 
@@ -17,7 +17,7 @@ defaultConfig.transformer.getTransformOptions = async () => ({
 
 defaultConfig.watchFolders = [
   ...defaultConfig.watchFolders,
-  "./.storybook/react-native",
+  './.storybook/react-native',
 ];
 
 module.exports = defaultConfig;

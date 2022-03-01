@@ -1,8 +1,8 @@
 {
   "extends": [
-    "universe/native",
-    "universe/web",
+    "universe",
     "universe/shared/typescript-analysis",
+    "next/core-web-vitals",
     "plugin:storybook/recommended"
   ],
   "overrides": [
