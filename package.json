@@ -29,7 +29,7 @@
     "test:debug": "jest -o --watch --coverage=false",
     "test:watch": "jest --watch --coverage=false --changedSince=origin/main",
     "test:coverage": "jest",
-    "test:badges": "npm test:coverage && jest-coverage-badges"
+    "test:badges": "npm run test:coverage && jest-coverage-badges"
   },
   "lint-staged": {
     "*.{js,ts,tsx}": "eslint --fix"
