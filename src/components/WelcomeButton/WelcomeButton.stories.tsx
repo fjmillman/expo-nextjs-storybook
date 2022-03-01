@@ -18,8 +18,8 @@ WithMessage.args = { message: 'Welcome' };
 WithMessage.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
   const button = canvas.getByText('Click here to');
-  await expect(button.textContent).toContain('open');
+  await expect(button).toHaveTextContent('open');
   await userEvent.click(button);
-  await expect(button.textContent).toContain('close');
+  await expect(button).toHaveTextContent('close');
   await expect(canvas.getByText('Welcome')).toBeInTheDocument();
 };
