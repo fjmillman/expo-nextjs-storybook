@@ -32,14 +32,12 @@ const config: Config.InitialOptions = {
     `node_modules/(?!${untranspiledModulePatterns.join('|')})`,
   ],
   setupFilesAfterEnv: ['<rootDir>/src/__mocks__/globalMock.js'],
-  testMatch: ['**/?(*.)+(spec|test).ts?(x)'],
+  testMatch: ['src/**/?(*.)+test.ts?(x)'],
   collectCoverage: true,
   collectCoverageFrom: [
-    '**/*.{ts,tsx}',
-    '!**/coverage/**',
-    '!**/node_modules/**',
-    '!**/babel.config.js',
-    '!**/jest.setup.js',
+    'src/**/*.ts?(x)',
+    '!src/**/?(*.)+_document.ts',
+    '!src/**/?(*.)+stories.tsx',
   ],
   coverageReporters: ['json-summary', 'text', 'lcov'],
 };

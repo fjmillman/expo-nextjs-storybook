@@ -5,18 +5,21 @@ import { within, userEvent } from '@storybook/testing-library';
 import WelcomeButton from '.';
 
 export default {
-  title: 'Components/Default',
+  title: 'Components/WelcomeButton',
   component: WelcomeButton,
 } as ComponentMeta<typeof WelcomeButton>;
 
-export const Default: ComponentStory<typeof WelcomeButton> = () => (
-  <WelcomeButton />
+const Template: ComponentStory<typeof WelcomeButton> = (args) => (
+  <WelcomeButton {...args} />
 );
 
-Default.play = async ({ canvasElement }) => {
+export const WithMessage = Template.bind({});
+WithMessage.args = { message: 'Welcome' };
+WithMessage.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
-  await userEvent.click(canvas.getByText('Click here'));
-  await expect(
-    canvas.getByText("You're ready to start development!")
-  ).toBeInTheDocument();
+  const button = canvas.getByText('Click here to');
+  await expect(button.textContent).toContain('open');
+  await userEvent.click(button);
+  await expect(button.textContent).toContain('close');
+  await expect(canvas.getByText('Welcome')).toBeInTheDocument();
 };
