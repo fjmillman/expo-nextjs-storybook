@@ -1,4 +1,4 @@
-import React, { VFC } from 'react';
+import { VFC } from 'react';
 import { Text, TouchableHighlight } from 'react-native';
 
 type Props = {

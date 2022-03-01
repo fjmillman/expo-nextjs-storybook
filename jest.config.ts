@@ -32,12 +32,11 @@ const config: Config.InitialOptions = {
     `node_modules/(?!${untranspiledModulePatterns.join('|')})`,
   ],
   setupFilesAfterEnv: ['<rootDir>/src/__mocks__/globalMock.js'],
-  testMatch: ['src/**/?(*.)+test.ts?(x)'],
   collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.ts?(x)',
     '!src/**/?(*.)+_document.ts',
-    '!src/**/?(*.)+stories.tsx',
+    '!src/**/?(*.)+stories.ts?(x)',
   ],
   coverageReporters: ['json-summary', 'text', 'lcov'],
 };

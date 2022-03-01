@@ -17,9 +17,8 @@ export const WithMessage = Template.bind({});
 WithMessage.args = { message: 'Welcome' };
 WithMessage.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
-  const button = canvas.getByText('Click here to');
-  await expect(button).toHaveTextContent('open');
+  const button = canvas.getByText('Click here to open');
   await userEvent.click(button);
-  await expect(button).toHaveTextContent('close');
+  await expect(button).toHaveTextContent('Click here to close');
   await expect(canvas.getByText('Welcome')).toBeInTheDocument();
 };
