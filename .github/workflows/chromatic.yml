@@ -1,9 +1,11 @@
 name: 'Chromatic'
 on: push
 jobs:
-  chromatic-deployment:
-    id: chromatic
+  deploy:
     runs-on: ubuntu-latest
+    outputs:
+      code: ${{ steps.chromatic.outputs.code }}
+      storybookUrl: ${{ steps.chromatic.outputs.storybookUrl }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -12,15 +14,15 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Publish to Chromatic
+        id: chromatic
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-        id: publish
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    if: ${{ jobs.chromatic.steps.publish.outputs.code == 0 }}
+    if: ${{ needs.deploy.outputs.code == 0 }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -31,4 +33,4 @@ jobs:
       - name: Run Storybook tests
         run: npm run storybook:test:ci
         env:
-          REFERENCE_URL: '${{ jobs.chromatic.steps.publish.outputs.storybookUrl }}'
+          REFERENCE_URL: '${{ needs.deploy.outputs.storybookUrl }}'
