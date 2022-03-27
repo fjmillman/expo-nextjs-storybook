@@ -17,7 +17,7 @@
     "storybook:build": "NODE_ENV=storybook build-storybook",
     "storybook:test": "test-storybook",
     "storybook:test:ci": "start-server-and-test 'npm run storybook:build --quiet' 6006 'npm run storybook:test'",
-    "chromatic": "chromatic --build-script-name 'npm run storybook:build' --skip 'dependabot/**' --exit-zero-on-changes --exit-once-uploaded",
+    "chromatic": "chromatic --build-script-name storybook:build --skip 'dependabot/**' --exit-zero-on-changes --exit-once-uploaded",
     "storybook:native:stories": "sb-rn-get-stories --config-path .storybook/react-native",
     "storybook:native:watch": "sb-rn-watcher --config-path .storybook/react-native",
     "storybook:native:start": "npm run storybook:native:stories && IS_STORYBOOK=true npm run expo:start",
