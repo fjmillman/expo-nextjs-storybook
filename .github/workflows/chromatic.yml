@@ -19,7 +19,7 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    if:  steps.chromatic.outputs.code === 0
+    if: steps.chromatic.outputs.code == 0
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
