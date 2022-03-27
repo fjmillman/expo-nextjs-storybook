@@ -15,3 +15,19 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+        id: chromatic
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    if:  steps.chromatic.outputs.code === 0
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: Install dependencies
+        run: npm install
+      - name: Run Storybook tests
+        run: npm run storybook:test:ci
+        env:
+          REFERENCE_URL: '${{ steps.chromatic.outputs.storybookUrl }}'
