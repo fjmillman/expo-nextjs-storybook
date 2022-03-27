@@ -31,6 +31,6 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run Storybook tests
-        run: npm run storybook:test:ci
+        run: npm run storybook:test
         env:
-          REFERENCE_URL: '${{ needs.deploy.outputs.storybookUrl }}'
+          TARGET_URL: '${{ needs.deploy.outputs.storybookUrl }}'
