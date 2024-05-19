@@ -1,0 +1,53 @@
+{
+  "name": "expo-nextjs-storybook",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@types/lint-staged": "~13.3.0",
+    "eslint-config": "workspace:*",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "ts-node": "^10.9.2",
+    "turbo": "^1.13.3",
+    "typescript": "^5.4.5",
+    "typescript-config": "workspace:*"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "clean": "turbo run clean && rm -rf node_modules .turbo coverage junit.xml",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{js,ts,tsx,mjs,json}\" --ignore-path ./.gitignore",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "test:ci:copy-coverage": "mkdir -p coverage && cp apps/native/coverage/coverage-final.json coverage/coverage-native.json && cp apps/web/coverage/coverage-final.json coverage/coverage-web.json && cp packages/app/coverage/coverage-final.json coverage/coverage-app.json",
+    "test:ci:merge-coverage": "pnpm test:ci:copy-coverage && nyc report -t coverage --reporter=json --reporter=lcov --reporter=text",
+    "test:ci": "turbo run test:ci && pnpm test:ci:merge-coverage",
+    "typesync": "pnpm dlx typesync"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,tsx,mjs}": "eslint --fix",
+    "**/*.{js,ts,tsx,mjs,json}": "prettier --write"
+  },
+  "overrides": {
+    "react": "18.2.0"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "react": "18.2.0"
+      }
+    }
+  },
+  "packageManager": "pnpm@9.1.0",
+  "engines": {
+    "node": ">=21.7.3",
+    "pnpm": ">=9.1.0"
+  }
+}

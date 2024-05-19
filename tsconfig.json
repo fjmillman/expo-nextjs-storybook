@@ -1,0 +1,6 @@
+{
+  "extends": "typescript-config/base.json",
+  "compilerOptions": {
+    "baseUrl": "./"
+  }
+}

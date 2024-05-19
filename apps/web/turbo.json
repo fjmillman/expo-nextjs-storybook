@@ -1,0 +1,11 @@
+{
+  "extends": ["//"],
+  "pipeline": {
+    "build": {
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "test:ci": {
+      "outputs": ["coverage/**"]
+    }
+  }
+}

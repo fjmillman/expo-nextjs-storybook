@@ -1,0 +1,16 @@
+{
+  "extends": "typescript-config/app.json",
+  "include": [
+    "index.ts",
+    "jest.config.ts",
+    "tailwind.config.ts",
+    "design-system",
+    "features",
+    "provider"
+  ],
+  "exclude": ["node_modules", "coverage"],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "types": ["nativewind/types", "./rnw-overrides.d.ts"]
+  }
+}
