@@ -1,0 +1,20 @@
+{
+  "extends": "typescript-config/native.json",
+  "include": [
+    "app.config.ts",
+    "babel.config.js",
+    "metro.config.js",
+    "index.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    "postcss.config.js",
+    "tailwind.config.ts",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ],
+  "exclude": ["node_modules", ".expo"],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "types": ["app/rnw-overrides", "nativewind/types"]
+  }
+}

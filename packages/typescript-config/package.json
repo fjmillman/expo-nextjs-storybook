@@ -1,0 +1,17 @@
+{
+  "name": "typescript-config",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "files": [
+    "base.json",
+    "app.json",
+    "web.json",
+    "native.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "pnpm@9.1.0",
+  "devDependencies": {}
+}
