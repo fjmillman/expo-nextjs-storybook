@@ -1,21 +1,17 @@
-import { FlatCompat } from '@eslint/eslintrc';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import * as parser from '@typescript-eslint/parser';
 import globals from 'globals';
-import { resolve, dirname } from 'node:path';
-import { pathToFileURL } from 'node:url';
-
-const compat = new FlatCompat({
-  baseDirectory: dirname(pathToFileURL(import.meta.url).pathname),
-});
+import { resolve } from 'node:path';
+import turboConfig from 'eslint-config-turbo/flat';
+import tseslint from 'typescript-eslint';
+import testingLibrary from 'eslint-plugin-testing-library';
 
 const project = resolve(process.cwd(), 'tsconfig.json');
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
-const config = [
+/** @type {import('eslint').Linter.Config[]} */
+const config = tseslint.config(
   { ignores: ['node_modules/**', '.turbo/**', 'coverage/**', '.storybook/**'] },
   eslintConfigPrettier,
-  ...compat.extends('turbo'),
+  ...turboConfig,
   {
     files: ['*.config.js', 'tailwind.config.ts'],
     languageOptions: {
@@ -68,9 +64,16 @@ const config = [
   {
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
-      parser,
+      parser: tseslint.parser,
     },
   },
-];
+  {
+    files: ['**/*.test.ts', '**/*.test.tsx'],
+    ...testingLibrary.configs['flat/react'],
+    rules: {
+      'testing-library/render-result-naming-convention': 'off',
+    },
+  },
+);
 
 export default config;

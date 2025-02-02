@@ -1,6 +1,4 @@
-import { StorybookConfig } from '@storybook/react-native';
-
-const main: StorybookConfig = {
+const main = {
   stories: ['../../../packages/app/**/*.stories.?(ts|tsx|mdx)'],
   addons: [
     '@storybook/addon-ondevice-notes',

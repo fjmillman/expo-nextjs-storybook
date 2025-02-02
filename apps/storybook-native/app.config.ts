@@ -30,6 +30,7 @@ const config: ExpoConfig = {
     tsconfigPaths: true,
     typedRoutes: true,
   },
+  newArchEnabled: true,
 };
 
 export default config;

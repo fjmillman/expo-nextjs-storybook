@@ -33,6 +33,7 @@ const config: ExpoConfig = {
   web: {
     bundler: 'metro',
   },
+  newArchEnabled: true,
 };
 
 export default config;

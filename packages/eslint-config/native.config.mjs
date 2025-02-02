@@ -8,7 +8,7 @@ const compat = new FlatCompat({
   baseDirectory: dirname(pathToFileURL(import.meta.url).pathname),
 });
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
+/** @type {import('eslint').Linter.Config[]} */
 const config = [...baseConfig, ...compat.extends('expo')];
 
 export default config;

@@ -6,11 +6,9 @@ import Button from '.';
 it('should respond to click events', async () => {
   const handleOnPress = jest.fn();
 
-  const { findByTestId } = render(
-    <Button label="Hello World!" onPress={handleOnPress} />,
-  );
+  const view = render(<Button label="Hello World!" onPress={handleOnPress} />);
 
-  const button = await findByTestId('button');
+  const button = await view.findByTestId('button');
 
   fireEvent(button, 'press');
 

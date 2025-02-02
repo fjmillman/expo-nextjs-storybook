@@ -1,19 +1,13 @@
 import js from '@eslint/js';
 import globals from 'globals';
-import { FlatCompat } from '@eslint/eslintrc';
-import { dirname } from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { flatConfigs } from 'eslint-plugin-import';
 
 import baseConfig from './base.config.mjs';
 
-const compat = new FlatCompat({
-  baseDirectory: dirname(pathToFileURL(import.meta.url).pathname),
-});
-
-/** @type {import('eslint').Linter.FlatConfig[]} */
+/** @type {import('eslint').Linter.Config[]} */
 const config = [
   js.configs.recommended,
-  ...compat.extends('plugin:import/recommended'),
+  flatConfigs.recommended,
   ...baseConfig,
   {
     languageOptions: {
