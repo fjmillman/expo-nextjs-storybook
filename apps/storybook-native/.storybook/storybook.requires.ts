@@ -48,4 +48,4 @@ if (!global.view) {
   updateView(global.view, annotations, normalizedStories);
 }
 
-export const view = global.view;
+export const view: ReturnType<typeof start> = global.view;

@@ -7,7 +7,7 @@
     "prestart": "sb-rn-get-stories",
     "watch": "sb-rn-watcher",
     "dev": "pnpm start",
-    "start": "expo start",
+    "start": "expo start --port 8082",
     "ios": "pnpm dev -- --ios",
     "android": "pnpm start -- --android",
     "lint": "eslint . --max-warnings 0",
