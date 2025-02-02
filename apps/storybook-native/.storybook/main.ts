@@ -1,3 +1,4 @@
+/** @type {import('@storybook/react-native').StorybookConfig}} */
 const main = {
   stories: ['../../../packages/app/**/*.stories.?(ts|tsx|mdx)'],
   addons: [

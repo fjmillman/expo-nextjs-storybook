@@ -1,6 +1,5 @@
-import { StorybookConfig } from '@storybook/nextjs';
-
-const config: StorybookConfig = {
+/** @type {import('@storybook/nextjs').StorybookConfig}} */
+const config = {
   framework: '@storybook/nextjs',
   stories: ['../../../packages/app/**/*.stories.@(ts|tsx|mdx)'],
   addons: [
