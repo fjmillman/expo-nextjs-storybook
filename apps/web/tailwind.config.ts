@@ -1,14 +1,17 @@
-import theme from 'app/design-system/tailwind/theme';
 import type { Config } from 'tailwindcss';
+import { fontFamily } from 'tailwindcss/defaultTheme';
+
+import webConfig from '@/tailwind-config/web';
 
 export default {
-  content: [
-    './app/**/*.{js,jsx,ts,tsx}',
-    '../../packages/**/*.{js,jsx,ts,tsx}',
-  ],
-  presets: [require('nativewind/preset')],
-  important: 'html',
+  content: [...webConfig.content, '../../packages/ui/**/*.{ts,tsx}'],
+  presets: [webConfig],
   theme: {
-    ...theme,
+    extend: {
+      fontFamily: {
+        sans: ['var(--font-geist-sans)', ...fontFamily.sans],
+        mono: ['var(--font-geist-mono)', ...fontFamily.mono],
+      },
+    },
   },
 } satisfies Config;

@@ -1,12 +1,15 @@
+/** @type {import("@babel/core").ConfigFunction} */
 module.exports = function (api) {
-  api.cache(true);
+  api.cache.forever();
 
   return {
     presets: [
       ['babel-preset-expo', { jsxImportSource: 'nativewind' }],
       'nativewind/babel',
+      'expo-router/babel',
     ],
     plugins: [
+      'react-native-reanimated/plugin',
       ['babel-plugin-react-docgen-typescript', { exclude: 'node_modules' }],
     ],
   };

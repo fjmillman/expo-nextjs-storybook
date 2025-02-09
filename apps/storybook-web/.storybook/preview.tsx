@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react';
 
-import '../../web/app/global.css';
+import '../../web/src/styles.css';
 
 const preview: Preview = {
   parameters: {
@@ -11,7 +11,12 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    nextjs: {
+      appDirectory: true,
+    },
   },
+
+  tags: ['autodocs'],
 };
 
 export default preview;

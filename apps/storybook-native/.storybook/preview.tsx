@@ -1,3 +1,5 @@
+import { View } from 'react-native';
+
 import type { Preview } from '@storybook/react';
 
 const preview: Preview = {
@@ -10,6 +12,13 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <View className="flex justify-center">
+        <Story />
+      </View>
+    ),
+  ],
 };
 
 export default preview;

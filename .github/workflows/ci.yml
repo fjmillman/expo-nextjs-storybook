@@ -1,0 +1,78 @@
+name: CI
+
+on:
+  pull_request:
+    branches: ["*"]
+  push:
+    branches: ["main"]
+  merge_group:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+env:
+  FORCE_COLOR: 3
+  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup
+        uses: ./tooling/github/setup
+
+      - name: Lint
+        run: pnpm lint && pnpm lint:ws
+
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup
+        uses: ./tooling/github/setup
+
+      - name: Format
+        run: pnpm format
+
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup
+        uses: ./tooling/github/setup
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup
+        uses: ./tooling/github/setup
+
+      - name: Unit tests
+        run: pnpm turbo run web#test native#test @/ui#test
+
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+          
+      - name: Setup
+        uses: ./tooling/github/setup
+
+      - name: Validate current commit (last commit) with commitlint
+        if: github.event_name == 'push'
+        run: pnpm dlx commitlint --last --verbose
+
+      - name: Validate PR commits with commitlint
+        if: github.event_name == 'pull_request'
+        run: pnpm dlx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose

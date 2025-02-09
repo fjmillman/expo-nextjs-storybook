@@ -1,0 +1,22 @@
+name: 'Storybook Tests'
+ 
+on: push
+ 
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup
+        uses: ./tooling/github/setup
+
+      - name: Install Playwright
+        run: pnpm dlx playwright install --with-deps
+
+      - name: Build Storybook
+        run: pnpm build -F storybook-web
+
+      - name: Serve Storybook and run tests
+        run: pnpm test:ci -F storybook-web
