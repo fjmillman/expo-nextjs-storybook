@@ -1,7 +1,11 @@
 /** @type {import('@storybook/nextjs').StorybookConfig}} */
 const config = {
   framework: '@storybook/nextjs',
-  stories: ['../../../packages/app/**/*.stories.@(ts|tsx|mdx)'],
+  stories: [
+    '../../../packages/ui/design-system/**/*.stories.@(ts|tsx|mdx)',
+    '../../../packages/ui/features/**/*.stories.@(ts|tsx|mdx)',
+    '../../../packages/ui/provider/**/*.stories.@(ts|tsx|mdx)',
+  ],
   addons: [
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
@@ -23,8 +27,9 @@ const config = {
       },
     },
   ],
-  docs: {
-    autodocs: true,
+  docs: {},
+  typescript: {
+    reactDocgen: 'react-docgen',
   },
 };
 

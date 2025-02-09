@@ -1,6 +1,13 @@
-import nativeConfig from 'eslint-config/native.config.mjs';
+import baseConfig from '@/eslint-config/base';
+import reactConfig from '@/eslint-config/react';
 
-/** @type {import('eslint').Linter.Config[]} */
-const config = [{ ignores: ['.expo/**'] }, ...nativeConfig];
+/** @type {import('typescript-eslint').Config} */
+const config = [
+  {
+    ignores: ['.expo/**', 'expo-plugins/**'],
+  },
+  ...baseConfig,
+  ...reactConfig,
+];
 
 export default config;

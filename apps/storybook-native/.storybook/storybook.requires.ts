@@ -10,13 +10,13 @@ import '@storybook/addon-ondevice-actions/register';
 const normalizedStories = [
   {
     titlePrefix: '',
-    directory: '../../packages/app',
+    directory: '../../packages/ui',
     files: '**/*.stories.?(ts|tsx|mdx)',
     importPathMatcher:
       /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|mdx)?)$/,
     // @ts-ignore
     req: require.context(
-      '../../../packages/app',
+      '../../../packages/ui',
       true,
       /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|mdx)?)$/,
     ),
@@ -37,7 +37,7 @@ const annotations = [
 global.STORIES = normalizedStories;
 
 // @ts-ignore
-module?.hot?.accept?.();
+module.hot?.accept?.();
 
 if (!global.view) {
   global.view = start({
@@ -48,4 +48,4 @@ if (!global.view) {
   updateView(global.view, annotations, normalizedStories);
 }
 
-export const view: ReturnType<typeof start> = global.view;
+export const view = global.view;

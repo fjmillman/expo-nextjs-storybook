@@ -22,6 +22,10 @@ const nextConfig = {
     'react-native-gesture-handler',
     'react-native-css-interop',
   ],
+
+  /** We already do linting and typechecking as separate tasks in CI */
+  eslint: { ignoreDuringBuilds: true },
+  typescript: { ignoreBuildErrors: true },
 };
 
 export default withExpo(nextConfig);

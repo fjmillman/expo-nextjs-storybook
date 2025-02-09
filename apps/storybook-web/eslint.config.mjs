@@ -1,9 +1,15 @@
-import appConfig from 'eslint-config/app.config.mjs';
+import baseConfig from '@/eslint-config/base';
+import reactConfig from '@/eslint-config/react';
+import webConfig from '@/eslint-config/web';
 
-/** @type {import('eslint').Linter.Config[]} */
+/** @type {import('typescript-eslint').Config} */
 const config = [
-  { ignores: ['storybook-static/**', '!.storybook/**'] },
-  ...appConfig,
+  {
+    ignores: ['.next/**', '!.storybook/**'],
+  },
+  ...baseConfig,
+  ...reactConfig,
+  ...webConfig,
 ];
 
 export default config;

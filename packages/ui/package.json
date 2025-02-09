@@ -1,0 +1,51 @@
+{
+  "name": "@/ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "index.ts",
+  "types": "index.ts",
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules coverage",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "test": "jest",
+    "test:ci": "pnpm test --ci",
+    "test:coverage": "pnpm test --coverage",
+    "test:watch": "pnpm test --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "prettier": "@/prettier-config",
+  "dependencies": {
+    "dripsy": "4.3.8",
+    "moti": "0.30.0",
+    "nativewind": "catalog:",
+    "react": "catalog:react18",
+    "react-dom": "catalog:react18",
+    "react-native": "~0.76.6",
+    "solito": "4.3.0"
+  },
+  "devDependencies": {
+    "@/eslint-config": "workspace:*",
+    "@/prettier-config": "workspace:*",
+    "@/tailwind-config": "workspace:*",
+    "@/tsconfig": "workspace:*",
+    "@jest/globals": "catalog:jest29",
+    "@storybook/react": "catalog:storybook8",
+    "@storybook/test": "catalog:storybook8",
+    "@testing-library/react-native": "~13.0.1",
+    "@types/jest": "catalog:jest29",
+    "@types/react": "catalog:react18",
+    "@types/react-dom": "catalog:react18",
+    "@types/react-test-renderer": "~18.3.1",
+    "babel-preset-expo": "~12.0.6",
+    "eslint": "catalog:",
+    "jest": "catalog:jest29",
+    "jest-expo": "52.0.3",
+    "prettier": "catalog:",
+    "react-test-renderer": "18.3.1",
+    "tailwindcss": "catalog:",
+    "ts-jest": "catalog:jest29",
+    "typescript": "catalog:"
+  }
+}

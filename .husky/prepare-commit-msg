@@ -1,0 +1,1 @@
+exec < /dev/tty && pnpm dlx git-cz --hook || true

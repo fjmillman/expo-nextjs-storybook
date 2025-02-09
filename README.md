@@ -1,1 +1,1 @@
-# Expo NextJS Storybook Turborepo
+# Expo NextJS

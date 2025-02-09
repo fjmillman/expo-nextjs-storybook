@@ -1,14 +1,8 @@
-import theme from 'app/design-system/tailwind/theme';
 import type { Config } from 'tailwindcss';
 
+import nativeConfig from '@/tailwind-config/native';
+
 export default {
-  content: [
-    './app/**/*.{js,jsx,ts,tsx}',
-    '../../packages/**/*.{js,jsx,ts,tsx}',
-  ],
-  presets: [require('nativewind/preset')],
-  theme: {
-    ...theme,
-  },
-  plugins: [],
+  content: [...nativeConfig.content, '../../packages/ui/**/*.{ts,tsx}'],
+  presets: [nativeConfig],
 } satisfies Config;

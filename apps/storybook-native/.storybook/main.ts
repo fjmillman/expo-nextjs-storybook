@@ -1,6 +1,6 @@
 /** @type {import('@storybook/react-native').StorybookConfig}} */
 const main = {
-  stories: ['../../../packages/app/**/*.stories.?(ts|tsx|mdx)'],
+  stories: ['../../../packages/ui/**/*.stories.?(ts|tsx|mdx)'],
   addons: [
     '@storybook/addon-ondevice-notes',
     '@storybook/addon-ondevice-controls',

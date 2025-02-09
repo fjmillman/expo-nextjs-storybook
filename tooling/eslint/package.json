@@ -1,0 +1,41 @@
+{
+  "name": "@/eslint-config",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./base": "./base.config.mjs",
+    "./react": "./react.config.mjs",
+    "./web": "./web.config.mjs",
+    "./native": "./native.config.mjs"
+  },
+  "types": "./types.d.ts",
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "typecheck": "tsc --noEmit"
+  },
+  "prettier": "@/prettier-config",
+  "dependencies": {
+    "@eslint/compat": "^1.2.6",
+    "@next/eslint-plugin-next": "^14.2.23",
+    "eslint-config-expo": "^8.0.1",
+    "eslint-config-turbo": "^2.4.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-storybook": "^0.11.2",
+    "eslint-plugin-testing-library": "^7.1.1",
+    "typescript-eslint": "^8.22.0"
+  },
+  "devDependencies": {
+    "@/prettier-config": "workspace:*",
+    "@/tsconfig": "workspace:*",
+    "@types/eslint-plugin-jsx-a11y": "~6.10.0",
+    "@types/eslint__js": "8.42.3",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:"
+  }
+}

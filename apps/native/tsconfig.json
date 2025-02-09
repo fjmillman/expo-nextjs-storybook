@@ -1,22 +1,15 @@
 {
-  "extends": "typescript-config/native.json",
-  "include": [
-    "app.config.ts",
-    "babel.config.js",
-    "jest.config.ts",
-    "metro.config.js",
-    "index.js",
-    "**/*.ts",
-    "**/*.tsx",
-    "postcss.config.js",
-    "tailwind.config.ts",
-    ".expo/types/**/*.ts",
-    "expo-env.d.ts",
-    "nativewind-env.d.ts"
-  ],
-  "exclude": ["node_modules", "coverage", ".expo"],
+  "extends": "@/tsconfig/base.json",
   "compilerOptions": {
-    "baseUrl": "./",
-    "types": ["app/rnw-overrides", "nativewind/types"]
-  }
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    },
+    "jsx": "react-native",
+    "types": ["../../tooling/eslint/types"],
+    "checkJs": false,
+    "moduleSuffixes": [".ios", ".android", ".native", ""]
+  },
+  "include": ["src", "*.ts", "*.js", ".expo/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

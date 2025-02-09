@@ -1,24 +1,16 @@
 {
-  "extends": "typescript-config/web.json",
+  "extends": "@/tsconfig/base.json",
   "compilerOptions": {
-    "baseUrl": "./",
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "types": ["app/rnw-overrides", "nativewind/types"]
+    "lib": ["ES2022", "dom", "dom.iterable"],
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    },
+    "types": ["../../tooling/eslint/types"],
+    "plugins": [{ "name": "next" }],
+    "module": "esnext"
   },
-  "include": [
-    "next-env.d.ts",
-    "web.config.mjs",
-    "jest.config.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "postcss.config.js",
-    "tailwind.config.ts",
-    ".next/types/**/*.ts",
-    "next.config.mjs"
-  ],
-  "exclude": ["node_modules", "coverage", ".next"]
+  "include": [".", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }
