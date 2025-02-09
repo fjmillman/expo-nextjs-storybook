@@ -59,7 +59,7 @@ jobs:
         uses: ./tooling/github/setup
 
       - name: Unit tests
-        run: pnpm turbo run web#test native#test @/ui#test
+        run: pnpm test
 
   commitlint:
     runs-on: ubuntu-latest

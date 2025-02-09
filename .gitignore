@@ -137,6 +137,11 @@ build/**
 !.yarn/sdks
 !.yarn/versions
 
+# Jest
 coverage/
 
+# Storybook
 storybook-static/
+
+# Next.js
+.next/
