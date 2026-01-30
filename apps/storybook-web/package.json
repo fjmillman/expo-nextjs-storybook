@@ -28,7 +28,7 @@
     "@storybook/test-runner": "catalog:storybook8",
     "chromatic": "catalog:storybook8",
     "nativewind": "catalog:",
-    "next": "14.2.23",
+    "next": "16.1.5",
     "raf": "^3.4.1",
     "react": "catalog:react18",
     "react-dom": "catalog:react18",
